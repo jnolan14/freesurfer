@@ -59,6 +59,20 @@ PYBIND11_MODULE(gemsbindings, m) {
                 py::arg("K0"),
                 py::arg("K1"),
                 py::arg("transform"))
+        //WISHART
+            .def("SetWishartParams", &KvlCostAndGradientCalculator::SetWishartParams)
+            // py::arg("numberOfContrasts"), py::arg("wmmMixtureWeights"),py::arg("numberOfWishartsPerClass"),\
+              //   py::arg("voxratio"), py::arg("degreesOfFreedom"), py::arg("scaleMatrices"), py::return_value_policy::take_ownership)
+        // FROB
+            .def("SetFrobeniusParams", &KvlCostAndGradientCalculator::SetFrobeniusParams)
+            //py::arg("numberOfContrasts"), py::arg("frobMixtureWeights"), py::arg("numberOfFrobeniusPerClass"),\
+              //   py::arg("voxratio"), py::arg("frobVariance"), py::arg("frobMeans"), py::return_value_policy::take_ownership)
+        // DSWbeta
+            .def("SetDSWparams", &KvlCostAndGradientCalculator::SetDSWparams)
+            //py::arg("numberOfContrasts"), py::arg("DSWbetaMixtureWeights"), py::arg("numberOfDSWbetaePerClass"),\
+              //   py::arg("voxratio"), py::arg("DSWbetaAlpha"), py::arg("DSWbetaMeans"), py::arg("DSWbetaBeta"),\
+                // py::arg("DSWbetaConcentration"), py::arg("logKummerSamples"), py::arg("logKummerIncrement"),py::return_value_policy::take_ownership)
+       
             .def("evaluate_mesh_position", &KvlCostAndGradientCalculator::EvaluateMeshPosition)
             // Aliases to help with profiling
             .def("evaluate_mesh_position_a", &KvlCostAndGradientCalculator::EvaluateMeshPosition)
